@@ -39,7 +39,6 @@ public class Main {
 	public static void main(String[] args) {
 		long startTime = System.nanoTime();
 
-		// TODO WORK AREA
 		ExecutorService executor = Executors.newFixedThreadPool(POOL_SIZE);
 		try {
 			loadAndWritePopulation(executor);
@@ -120,7 +119,6 @@ public class Main {
 		return new PopulationFileWriter();
 	}
 
-	// TODO END WORK AREA
 	private static String formatElapsedTime(long nanos) {
 		long hours = TimeUnit.NANOSECONDS.toHours(nanos);
 		long minutes = TimeUnit.NANOSECONDS.toMinutes(nanos) % 60;
