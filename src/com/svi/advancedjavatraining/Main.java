@@ -35,10 +35,10 @@ public class Main {
 
 	private static final String OUTPUT_FOLDER = "Output";
 
-	public static void main(String[] args) {
+	static void main() {
 		long startTime = System.nanoTime();
 
-		ExecutorService executor = Executors.newVirtualThreadPerTaskExecutor();;
+		ExecutorService executor = Executors.newVirtualThreadPerTaskExecutor();
 		try {
 			loadAndWritePopulation(executor);
 		} catch (InterruptedException e) {
@@ -67,7 +67,7 @@ public class Main {
 
 		Map<String, List<City>> citiesByProvinceKey = new HashMap<>();
 		for (City city : cityFuture.get()) {
-			citiesByProvinceKey.computeIfAbsent(city.getProvince(), key -> new ArrayList<>()).add(city);
+			citiesByProvinceKey.computeIfAbsent(city.getProvince(), _ -> new ArrayList<>()).add(city);
 		}
 
 		List<String> provinceNames = new ArrayList<>();
