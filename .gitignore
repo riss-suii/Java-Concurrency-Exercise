@@ -1,0 +1,13 @@
+# IDE settings
+.idea/
+
+# Build output
+bin/
+target/
+
+# Input: ignore the generated province folders, but keep the source file
+Input/*
+!Input/ph.json
+
+# Generated output files
+Output/*
