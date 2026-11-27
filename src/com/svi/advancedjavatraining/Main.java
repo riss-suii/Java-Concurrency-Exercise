@@ -33,13 +33,12 @@ import com.svi.advancedjavatraining.utils.WebLoader;
 
 public class Main {
 
-	private static final int POOL_SIZE = 100;
 	private static final String OUTPUT_FOLDER = "Output";
 
 	public static void main(String[] args) {
 		long startTime = System.nanoTime();
 
-		ExecutorService executor = Executors.newFixedThreadPool(POOL_SIZE);
+		ExecutorService executor = Executors.newVirtualThreadPerTaskExecutor();;
 		try {
 			loadAndWritePopulation(executor);
 		} catch (InterruptedException e) {
